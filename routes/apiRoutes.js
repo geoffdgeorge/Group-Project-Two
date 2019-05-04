@@ -3,15 +3,15 @@ const db = require('../models');
 module.exports = function (app) {
   // Get all examples
   app.get('/api/examples', (req, res) => {
-    db.Example.findAll({}).then((dbExamples) => {
-      res.json(dbExamples);
+    db.User.findAll({}).then((data) => {
+      res.json(data);
     });
   });
 
   // Create a new example
   app.post('/api/examples', (req, res) => {
-    db.Example.create(req.body).then((dbExample) => {
-      res.json(dbExample);
+    db.User.create(req.body).then((results) => {
+      res.json(results);
     });
   });
 
