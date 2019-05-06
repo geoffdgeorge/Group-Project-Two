@@ -8,9 +8,16 @@ module.exports = function (app) {
     });
   });
 
-  // Create a new example
-  app.post('/api/examples', (req, res) => {
+  // Create a new user
+  app.post('/api/users', (req, res) => {
     db.User.create(req.body).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // Create a new user entry
+  app.post('/api/entries', (req, res) => {
+    db.Entry.create(req.body).then((results) => {
       res.json(results);
     });
   });
