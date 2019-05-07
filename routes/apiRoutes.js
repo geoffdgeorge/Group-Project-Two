@@ -1,3 +1,4 @@
+const passport = require('passport');
 const db = require('../models');
 
 module.exports = function (app) {
@@ -21,6 +22,11 @@ module.exports = function (app) {
       res.json(results);
     });
   });
+
+  // Validate user when they attempt to sign in and redirect them to their user page
+  app.post('/login', passport.authenticate('local'), (req, res) => {
+    res.redirect('/users/' + req.user.username);
+  })
 
   // Delete an example by id
   app.delete('/api/examples/:id', (req, res) => {
