@@ -1,15 +1,15 @@
 const path = require('path');
 
 const signup = function (req, res) {
-  res.sendFile(path.join(`${__dirname}/../views/signUpPage.html`));
+  res.sendFile(path.join(`${__dirname}/../public/views/signUpPage.html`));
 };
 
 const login = function (req, res) {
-  res.sendFile(path.join(`${__dirname}/../views/logInPage.html`));
+  res.sendFile(path.join(`${__dirname}/../public/views/logInPage.html`));
 };
 
 const userPage = function (req, res) {
-  res.sendFile(path.join(`${__dirname}/../views/userPage.html`));
+  res.sendFile(path.join(`${__dirname}/../public/views/userPage.html`));
 };
 
 const logout = function (req, res) {

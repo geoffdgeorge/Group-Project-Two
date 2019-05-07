@@ -1,16 +1,10 @@
 const db = require('../models');
 
-// module.exports = function (app) {
-//   // Load index page
-//   app.get('/', (req, res) => {
-//     res.send('Welcome to Passport with Sequelize');
-//     // db.Example.findAll({}).then((dbExamples) => {
-//     //   res.render('index', {
-//     //     msg: 'Welcome!',
-//     //     examples: dbExamples,
-//     //   });
-//     // });
-//   });
+module.exports = function (app) {
+  // Load index page
+  app.get('/', (req, res) => {
+    res.redirect('/login');
+  });
 
 //   // Load example page and pass in an example by id
 //   app.get('/example/:id', (req, res) => {
@@ -25,4 +19,4 @@ const db = require('../models');
 //   app.get('*', (req, res) => {
 //     res.render('404');
 //   });
-// };
+};
