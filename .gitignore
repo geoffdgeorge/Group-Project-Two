@@ -85,3 +85,7 @@ typings/
 
 # Mac OS files
 .DS_Store
+
+# Config
+
+config/config.json

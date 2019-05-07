@@ -1,5 +1,7 @@
 require('dotenv').config();
 const express = require('express');
+const passport = require('passport');
+const session = require('express-session');
 
 const db = require('./models');
 
@@ -7,13 +9,21 @@ const app = express();
 const PORT = process.env.PORT || 4500;
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
+app.use(session({ secret: 'my secret', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Routes
 require('./routes/apiRoutes')(app);
-require('./routes/htmlRoutes')(app);
+// require('./routes/htmlRoutes')(app);
+require('./routes/authRoutes')(app, passport);
+
+//Passport Strategies
+require('./config/passport/passport.js')(passport, db.User);
 
 const syncOptions = { force: false };
 
