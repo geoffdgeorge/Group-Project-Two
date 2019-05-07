@@ -5,23 +5,25 @@ module.exports = function (app, passport) {
   app.get('/signup', authController.signup);
   // Validates login of new user
   app.get('/login', authController.login);
-  app.get('/userPage', authController.userPage);
+  app.get('/userPage', isLoggedIn, authController.userPage);
   app.get('/logout', authController.logout);
+
   app.post(
     '/signup',
     passport.authenticate('local-signup', {
-      successRedirect: '/userPage',
+      successRedirect: '/login',
       failureRedirect: '/signup',
     }),
   );
+
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
-
     res.redirect('/login');
   }
+
   app.post(
     '/login',
-    passport.authenticate('local-login', {
+    passport.authenticate('local', {
       successRedirect: '/userPage',
       failureRedirect: '/login',
     }),
