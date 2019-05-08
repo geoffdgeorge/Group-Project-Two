@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../styles/normalize.css" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="../styles/style.css" />
+	</head>
+	<body>
+		<form action="submit">
+			<div class="field-name">
+				<i class="fas fa-user"></i>
+				<input type="text" placeholder="Username" required />
+				<i class="fas fa-arrow-down"></i>
+			</div>
+			<div class="field-password inactive">
+				<i class="fas fa-key"></i>
+				<input type="password" placeholder="Password" required />
+				<i class="fas fa-arrow-down"></i>
+			</div>
+			<div class="field-finished inactive">
+				<i class="fas fa-heart"></i>
+				<p>Thanks!</p>
+				<i class="fas fa-heart"></i>
+			</div>
+		</form>
+
+		<!-- <form action="submit" id="submit-login">
+			<input type="text" id='username-login' placeholder="Username" required />
+			<input type="password" id='password-login' placeholder="Password" required />
+			<button type='submit'>Log In</button>
+		</form> -->
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="../js/login.js"></script>
+	</body>
+</html>

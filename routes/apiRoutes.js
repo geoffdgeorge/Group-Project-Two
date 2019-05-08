@@ -3,7 +3,7 @@ const db = require('../models');
 
 module.exports = function (app) {
   // Get all examples
-  app.get('/api/examples', (req, res) => {
+  app.get('/api/users/:username', (req, res) => {
     db.User.findAll({}).then((data) => {
       res.json(data);
     });
