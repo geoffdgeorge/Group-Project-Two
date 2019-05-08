@@ -8,6 +8,16 @@ module.exports = function (app, passport) {
   app.get('/userPage', isLoggedIn, authController.userPage);
   app.get('/logout', authController.logout);
 
+  /*
+  app.get('/api/entries/:entries', (req, res) => { //  // Adding a 'get' to show previous entries
+    db.entry.findAll({}).then((data) => { // db.entry (entry different from Entry?)
+      res.json(data);  
+    });
+  });
+
+  Put 'get' for entries here so that when authorization happens, entry data associated with that account will appear
+  */
+
   app.post(
     '/signup',
     passport.authenticate('local-signup', {
