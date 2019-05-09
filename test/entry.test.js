@@ -33,3 +33,4 @@ describe('entry', function() {
 // expect and equal need updated information
 // the integer and boolean may need to be replaced
 // need errors to throw
+

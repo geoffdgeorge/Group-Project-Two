@@ -13,3 +13,7 @@ describe('user', function() {
 });
 
 // need to throw errors
+// test for if user name exist.... return true
+// if user does not exist, verify with anyway you can test a user, return error
+// error, add values that it doesnt want
+// test leaving null, test leaving with character
