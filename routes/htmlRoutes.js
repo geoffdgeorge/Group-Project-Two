@@ -7,23 +7,23 @@ module.exports = function (app) {
   });
 
   app.get('/users/:username', (req, res) => {
-    const username = req.params.username;
-    db.User.findOne({ where: {username: username} }).then(results => {
-      res.send(results);
-    })
-  })
+    const { username } = req.params;
+    db.User.findOne({ where: { username } }).then((results) => {
+      res.redirect('/userPage');
+    });
+  });
 
-//   // Load example page and pass in an example by id
-//   app.get('/example/:id', (req, res) => {
-//     db.Example.findOne({ where: { id: req.params.id } }).then((dbExample) => {
-//       res.render('example', {
-//         example: dbExample,
-//       });
-//     });
-//   });
+  //   // Load example page and pass in an example by id
+  //   app.get('/example/:id', (req, res) => {
+  //     db.Example.findOne({ where: { id: req.params.id } }).then((dbExample) => {
+  //       res.render('example', {
+  //         example: dbExample,
+  //       });
+  //     });
+  //   });
 
-//   // Render 404 page for any unmatched routes
-//   app.get('*', (req, res) => {
-//     res.render('404');
-//   });
+  //   // Render 404 page for any unmatched routes
+  //   app.get('*', (req, res) => {
+  //     res.render('404');
+  //   });
 };

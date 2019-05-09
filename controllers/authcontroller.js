@@ -1,15 +1,14 @@
-const path = require('path');
-
 const signup = function (req, res) {
-  res.sendFile(path.join(`${__dirname}/../public/views/signUpPage.html`));
+  res.render('signup');
 };
 
 const login = function (req, res) {
-  res.sendFile(path.join(`${__dirname}/../public/views/logInPage.html`));
+  res.render('login');
 };
 
 const userPage = function (req, res) {
-  res.sendFile(path.join(`${__dirname}/../public/views/userPage.html`));
+  console.log(req);
+  res.render('userPage', req.user);
 };
 
 const logout = function (req, res) {

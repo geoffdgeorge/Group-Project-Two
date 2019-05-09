@@ -31,8 +31,6 @@ module.exports = function (passport, user) {
           const data = {
             username,
             password: userPassword,
-            firstname: req.body.firstname,
-            lastname: req.body.lastname,
           };
 
           User.create(data).then((newUser, created) => {
@@ -53,7 +51,7 @@ module.exports = function (passport, user) {
     done(null, user.id);
   });
   passport.deserializeUser((id, done) => {
-    User.findById(id).then((user) => {
+    User.findByPk(id).then((user) => {
       if (user) {
         done(null, user.get());
       } else {
