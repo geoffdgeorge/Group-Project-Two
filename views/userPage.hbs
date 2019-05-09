@@ -13,9 +13,56 @@
 </head>
 
 <body>
-    <h1>Welcome {{username}}!</h1>
+    <header>
+        
+    </header>
 
-    <button data-id={{id}}>Submit info</button>
+    <main>
+        <h1>Welcome {{username}}!</h1>
+        <h3>How are you feeling today?</h3>
+        <form id='entry-submit' data-id={{id}}>
+            <p><strong>Pain Level</strong></p>
+            <select id='pain' name="choices">
+                <option value="1">1 (Little to None)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5" selected="selected">5></option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10 (Excruciating)</option>
+            </select>
+
+            <p><strong>Strength Level</strong></p>
+            <select id='strength' name="choices">
+                <option value="1">1 (Weak)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5" selected="selected">5></option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10 (Full Strength)</option>
+            </select>
+
+            <p><strong>Where's the Pain?</strong></p>
+            <p>Top</p>
+            <input type="checkbox" id='knee-top'>
+            <p>Bottom</p>
+            <input type="checkbox" id='knee-bottom'>
+            <p>Inside</p>
+            <input type="checkbox" id='knee-inside'>
+            <p>Outside</p>
+            <input type="checkbox" id='knee-outside'>
+
+            <button type='submit'>Submit</button>
+        </form>
+    </main>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../js/userPage.js"></script>
 </body>
