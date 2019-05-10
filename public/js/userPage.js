@@ -117,7 +117,21 @@ axios
           xAxes: [
             {
               type: 'time',
+              time: {
+                displayFormats: {
+                  hour: 'MMM Do',
+                },
+              },
               distribution: 'series',
+            },
+          ],
+          yAxes: [
+            {
+              type: 'linear',
+              ticks: {
+                beginAtZero: true,
+                max: 10,
+              },
             },
           ],
         },
