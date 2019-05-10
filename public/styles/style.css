@@ -97,7 +97,7 @@ div.active {
 	#container main {
 		width: 100%;
 		display: grid;
-		grid-template: auto / 1fr
+		grid-template: auto / 1fr;
 		grid-gap: 1rem;
 	}
 
@@ -171,11 +171,41 @@ div.active {
 	#data {
 		display: grid;
 		grid-template: auto / 1fr;
-		padding: 1rem;
+		grid-gap: 1rem;
 	}
 
 	#entries {
+		background: silver;
+		width: 100%;
+		display: grid;
+		grid-template: auto / 1fr;
+		justify-items: center;
+		align-items: center
+	}
 
+	#entry-table {
+		display: grid;
+		grid-template: auto / 1fr;
+	}
+
+	.entry {
+		display: grid;
+		grid-template: auto / repeat(7, 1fr);
+		justify-items: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	#pain-graph {
+		background: silver;
+		width: 100%;
+		height: 30vh
+	}
+
+	#strength-graph {
+		background: silver;
+		width: 100%;
+		height: 30vh;
 	}
 
 }
