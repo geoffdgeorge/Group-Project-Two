@@ -11,7 +11,7 @@ module.exports = function (app, passport) {
   /*
   app.get('/api/entries/:entries', (req, res) => { //  // Adding a 'get' to show previous entries
     db.entry.findAll({}).then((data) => { // db.entry (entry different from Entry?)
-      res.json(data);  
+      res.json(data);
     });
   });
 
@@ -21,7 +21,7 @@ module.exports = function (app, passport) {
   app.post(
     '/signup',
     passport.authenticate('local-signup', {
-      successRedirect: '/login',
+      successRedirect: '/userPage',
       failureRedirect: '/signup',
     }),
   );

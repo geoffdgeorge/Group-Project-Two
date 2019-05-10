@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const passport = require('passport');
 const session = require('express-session');
-
+const exphbs = require('express-handlebars');
 const db = require('./models');
 
 const app = express();
@@ -13,16 +13,27 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
+// For Passport
 app.use(session({ secret: 'my secret', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+// For Handlebars
+app.set('views', './views');
+app.engine(
+  'hbs',
+  exphbs({
+    extname: '.hbs',
+  }),
+);
+app.set('view engine', '.hbs');
 
 // Routes
 require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);
 require('./routes/authRoutes')(app, passport);
 
-//Passport Strategies
+// Passport Strategies
 require('./config/passport/passport.js')(passport, db.User);
 
 const syncOptions = { force: false };

@@ -1,3 +1,5 @@
+/* General Styling */
+
 * {
 	margin: 0;
 	padding: 0;
@@ -11,6 +13,8 @@ body {
 	transition: background 0.5s ease;
 	position: relative;
 }
+
+/* Sign-in Page Styling */
 
 .field-name,
 .field-email,
@@ -70,4 +74,148 @@ div.active {
 	100% {
 		transform: translate(-50%, -50%) rotate(0deg);
 	}
+}
+
+/* User Page Styling */
+
+@media only screen and (min-width: 320px) {
+
+	#container {
+		display: grid;
+		grid-template: min-content / 1fr;
+		grid-gap: 1rem;
+		justify-items: center;
+		align-items: center;
+		width: 100%;
+		padding: 1rem;
+	}
+
+	#container h1 {
+		margin: 0;
+	}
+
+	#container main {
+		width: 100%;
+		display: grid;
+		grid-template: auto / 1fr;
+		grid-gap: 1rem;
+	}
+
+	#entry-submit {
+		background: silver;
+		border-radius: 1rem;
+		display: grid;
+		grid-template: auto / 1fr;
+		grid-gap: 1rem;
+		justify-items: center;
+		align-items: center;
+		padding: 1rem;
+	}
+
+	#pain-survey {
+		display: grid;
+		grid-template: auto / 1fr;
+		grid-gap: 1rem;
+		justify-items: center;
+		align-items: center;
+	}
+
+	#where-pain {
+		display: grid;
+		grid-template: auto / 1fr;
+		grid-gap: 1rem;
+		justify-items: center;
+		align-items: center;
+	}
+
+	#knee-diagram {
+		position: relative;
+	}
+
+	#knee-img {
+		width: 100%;
+	}
+
+	#top {
+		position: absolute;
+		left: 50%;
+		top: 25%;
+	}
+
+	#bottom {
+		position: absolute;
+		left: 50%;
+		bottom: 20%;
+	}
+
+	#inside {
+		position: absolute;
+		right: 5%;
+		top: 45%;
+	}
+
+	#outside {
+		position: absolute;
+		left: 20%;
+		top: 45%;
+	}
+
+	#pain-choices {
+		display: grid;
+		grid-template: auto / 1fr;
+		grid-gap: 1rem;
+		justify-items: center;
+		align-items: center;
+	}
+
+	#data {
+		display: grid;
+		grid-template: auto / 1fr;
+		grid-gap: 1rem;
+	}
+
+	#entries {
+		background: silver;
+		width: 100%;
+		display: grid;
+		grid-template: auto / 1fr;
+		justify-items: center;
+		align-items: center
+	}
+
+	#entry-table {
+		display: grid;
+		grid-template: auto / 1fr;
+	}
+
+	.entry {
+		display: grid;
+		grid-template: auto / repeat(7, 1fr);
+		justify-items: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	#pain-graph {
+		background: silver;
+		width: 100%;
+		height: 30vh
+	}
+
+	#strength-graph {
+		background: silver;
+		width: 100%;
+		height: 30vh;
+	}
+
+}
+
+@media only screen and (min-width: 768px) {
+
+	#container main {
+		width: 80%;
+		display: grid;
+		grid-template: auto / 1fr 3fr;
+	}
+
 }
