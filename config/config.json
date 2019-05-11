@@ -1,7 +1,7 @@
 {
 	"development": {
 		"username": "root",
-		"password": "PASSWORD",
+		"password": "123",
 		"database": "development_paingain",
 		"host": "localhost",
 		"dialect": "mysql"
