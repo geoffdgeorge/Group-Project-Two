@@ -63,7 +63,11 @@ function handleSignUp(e) {
   axios
     .post('/signup', data)
     .then((response) => {
-      console.log(response);
+      if (response.status === 200) {
+        window.location = '/userPage';
+      } else {
+        window.location = '/signup';
+      }
     })
     .catch((error) => {
       console.log(error);

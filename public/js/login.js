@@ -51,7 +51,7 @@ const loginUsername = document.getElementById('username-login');
 const loginPassword = document.getElementById('password-login');
 const loginSubmit = document.getElementById('login');
 
-loginSubmit.addEventListener('submit', function (e) {
+loginSubmit.addEventListener('submit', (e) => {
   e.preventDefault();
   console.log('got here');
 
@@ -62,7 +62,7 @@ loginSubmit.addEventListener('submit', function (e) {
     password: e.target.password.value.trim(),
   };
 
-  console.log(data)
+  console.log(data);
 
   // Got a hint on how to redirect axios post calls from this resource: https://stackoverflow.com/questions/49601795/making-redirects-after-an-axios-post-request-with-express
   axios
