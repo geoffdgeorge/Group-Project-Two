@@ -15,29 +15,15 @@
 		<link rel="stylesheet" href="../styles/style.css" />
 	</head>
 	<body>
-		<div class="container">
-			<div class="box" id="sign-up">
-				<a class="back" href="#back"><span class="back-arrow">Back</span></a>
-				<div class="brand">
-					<div class="logo">
-						<div class="square"></div>
-						<div class="square"></div>
-						<div class="square"></div>
-					</div>
-					<h2 class="title">Sign up now</h2>
-				</div>
-				<div class="form">
-					<form>
-						<div class="row">
-							<input type="text" name="firstname" placeholder="First name">
-							<input type="text" name="lastname" placeholder="Last name">
-						</div>
-						<input type="email" name="email" placeholder="Email">
-						<input type="password" name="password" placeholder="Password">
-						<button type="submit" name="submit">Sign Up</button>
-					</form>
-				</div>
-			</div>
+		<div id="wrapper">
+			<form>
+				<p>Create your Account</p>
+				<input type="username" placeholder="Username" required>
+				<span class="tick"></span>
+				<input type="password" placeholder="Password" required>
+				<span class="tick"></span>
+				<button>Create Account</button>
+			</form>
 		</div>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="../js/signup.js"></script>

@@ -15,23 +15,18 @@
 <body>
     <h1>Log in now!</h1>
 
-    {{!-- <form action="submit">
+    <form action="submit" id="login">
         <div class="field-name">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" required />
+            <input name="username" type="text" placeholder="Username" required />
             <i class="fas fa-arrow-down"></i>
         </div>
         <div class="field-password inactive">
             <i class="fas fa-key"></i>
-            <input type="password" placeholder="Password" required />
-            <i class="fas fa-arrow-down"></i>
+            <input name="password" type="password" placeholder="Password" required />
+            <input type="submit"><i class="fas fa-arrow-down"></i></input>
         </div>
-        <div class="field-finished inactive">
-            <i class="fas fa-heart"></i>
-            <p>Thanks!</p>
-            <i class="fas fa-heart"></i>
-        </div>
-    </form> --}}
+    </form>
 
     {{!-- <form id="signup" name="signup" method="post" action="/login">
         <label for="username">Username</label>
@@ -41,11 +36,11 @@
         <input class="btn" type="submit" value="Log In" />
     </form> --}}
 
-    <form id="submit-login">
+    {{!-- <form id="submit-login">
         <input type="text" id='username-login' placeholder="Username" name="username" required />
         <input type="password" id='password-login' placeholder="Password" name="password" required />
         <button type='submit'>Log In</button>
-    </form>
+    </form> --}}
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/js/login.js"></script>
