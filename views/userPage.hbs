@@ -15,6 +15,7 @@
 
 <body>
     <div id='container'>
+        <a href="/logout"><span id='logout'><i class="fas fa-arrow-left"></i> Logout</span></a>
         <header>
             <h1>Patellr</h1>
         </header>
@@ -47,7 +48,7 @@
                         </section>
                     </section>
                     <section id='pain-choices'>
-                        <div>
+                        <div class="select">
                             <p><strong>Pain Level</strong></p>
                             <select id='pain' name="choices">
                                 <option value="1">1 (Little to None)</option>
@@ -63,7 +64,7 @@
                             </select>
                         </div>
 
-                        <div>
+                        <div class="select">
                             <p><strong>Strength Level</strong></p>
                             <select id='strength' name="choices">
                                 <option value="1">1 (Weak)</option>
@@ -85,9 +86,9 @@
             <section id='data'>
                 <section id='entries'>
                     <h3>Updates</h3>
-                    <div class='entry'>
-                        <p><strong>Strength Level</strong></p>
-                        <p><strong>Pain Level</strong></p>
+                    <div id='entry-header'>
+                        <p><strong>Strength</strong></p>
+                        <p><strong>Pain</strong></p>
                         <p><strong>Pain Top</strong></p>
                         <p><strong>Pain Bottom</strong></p>
                         <p><strong>Pain Inside</strong></p>
