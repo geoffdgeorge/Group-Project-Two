@@ -85,7 +85,7 @@ axios
       entryDiv.appendChild(pI);
       entryDiv.appendChild(pO);
       entryDiv.appendChild(date);
-      entryTable.appendChild(entryDiv);
+      entryTable.prepend(entryDiv);
     });
 
     console.log(painData);

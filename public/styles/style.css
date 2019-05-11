@@ -179,6 +179,7 @@ div.active {
 		grid-gap: 0.5rem;
 		justify-items: center;
 		align-items: center;
+		text-align: center;
 		padding: 1rem;
 	}
 
@@ -422,7 +423,7 @@ div.active {
 	}
 
 	#graph-display {
-		height: none;
+		height: auto;
 	}
 }
 
