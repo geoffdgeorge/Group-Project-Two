@@ -38,6 +38,8 @@ axios
   .then((response) => {
     console.log(response);
     const entries = response.data;
+    const painData = [];
+    const strengthData = [];
 
     entries.forEach((entry) => {
       const entryDiv = document.createElement('div');
@@ -67,6 +69,14 @@ axios
       const unparsedDate = moment(entry.createdAt);
       const date = document.createElement('p');
       date.textContent = unparsedDate.format('MMMM Do YYYY');
+      strengthData.push({
+        x: new Date(entry.createdAt),
+        y: entry.strength_level,
+      });
+      painData.push({
+        x: new Date(entry.createdAt),
+        y: entry.pain_level,
+      });
 
       entryDiv.appendChild(strengthP);
       entryDiv.appendChild(painP);
@@ -76,6 +86,56 @@ axios
       entryDiv.appendChild(pO);
       entryDiv.appendChild(date);
       entryTable.appendChild(entryDiv);
+    });
+
+    console.log(painData);
+    console.log(strengthData);
+
+    // Dummy chart attached to the canvas element in userPage.hbs
+    const ctx = document.getElementById('graph').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        datasets: [
+          {
+            label: 'Strength',
+            backgroundColor: 'rgba(87, 189, 130, .5)',
+            borderColor: 'rgba(97, 199, 140, .5)',
+            data: strengthData,
+          },
+          {
+            label: 'Pain',
+            backgroundColor: 'rgba(121, 99, 132, .5)',
+            borderColor: 'rgba(131, 99, 132, .5)',
+            data: painData,
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        scales: {
+          xAxes: [
+            {
+              type: 'time',
+              time: {
+                displayFormats: {
+                  hour: 'MMM Do',
+                },
+              },
+              distribution: 'series',
+            },
+          ],
+          yAxes: [
+            {
+              type: 'linear',
+              ticks: {
+                beginAtZero: true,
+                max: 10,
+              },
+            },
+          ],
+        },
+      },
     });
   })
   .catch((error) => {
