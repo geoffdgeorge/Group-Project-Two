@@ -99,8 +99,8 @@ axios
         datasets: [
           {
             label: 'Strength',
-            backgroundColor: 'rgba(255, 99, 132, .5)',
-            borderColor: 'rgba(265, 99, 132, .5)',
+            backgroundColor: 'rgba(87, 189, 130, .5)',
+            borderColor: 'rgba(97, 199, 140, .5)',
             data: strengthData,
           },
           {
