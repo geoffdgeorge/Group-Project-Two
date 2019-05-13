@@ -1,13 +1,3 @@
-function validateUser(user) {
-  if (user.value.length < 6) {
-    console.log('not enough characters');
-    error('rgb(189,87,87)');
-  } else {
-    error('rgb(87,189,130)');
-    return true;
-  }
-}
-
 function nextSlide(parent, nextForm) {
   parent.classList.add('inactive');
   parent.classList.remove('active');
@@ -28,9 +18,9 @@ function animatedForm() {
       const nextForm = parent.nextElementSibling;
 
       // Check for validation
-      if (input.type === 'text' && validateUser(input)) {
+      if (input.type === 'text') {
         nextSlide(parent, nextForm);
-      } else if (input.type === 'password' && validateUser(input)) {
+      } else if (input.type === 'password') {
         nextSlide(parent, nextForm);
       } else {
         console.log(parent);
@@ -65,7 +55,14 @@ loginSubmit.addEventListener('submit', (e) => {
       if (response.request.responseURL === 'http://localhost:4500/userPage') {
         window.location = '/userPage';
       } else {
-        window.location = '/login';
+        // window.location = '/login';
+        document.querySelector('.field-name').classList.add('active');
+        document.querySelector('.field-password').classList.remove('active');
+        document.querySelector('.field-password').classList.add('inactive');
+        document.querySelector('[name="password"]').value = '';
+        document.querySelector('[name="username"]').value = '';
+        document.querySelector('[name="username"]').placeholder = 'Invalide username or password';
+        error('rgb(189,87,87)');
       }
     })
     .catch((error) => {
