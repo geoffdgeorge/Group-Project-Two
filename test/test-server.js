@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 let request;
 
 describe("POST /api/entries", function() {
-  // Before each test begins, create a new request server for testing
+  // Create a new request server for testing (using test_db)
   // & delete all examples from the db
   beforeEach(function() {
     request = chai.request(server);
@@ -32,11 +32,11 @@ describe("POST /api/entries", function() {
 
         expect(responseBody[0])
           .to.be.an("number")
-          .that.includes(text: "pain_level", description: "number between 1 and 10");
+          .that.includes( {text: "pain_level", description: "number between 1 and 10"} );
 
         expect(responseBody[1])
           .to.be.an("number")
-          .that.includes(text: "strength_level", description: "number between 1 and 10")
+          .that.includes( {text: "strength_level", description: "number between 1 and 10"} )
         
         done();
       });
