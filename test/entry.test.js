@@ -1,46 +1,32 @@
-const assert = require('chai').assert;
+// Chai - Mocha testing for entry.js
+
+const expect = require('chai').expect;
 const entry = require('../models/entry'); //entry js link
+const inputOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // for pain_level, strength_level, 
 
 
 describe('entry', function(){
-  it('pain_level should allow only an integer input of 1 to 10', function(){
-  assert.equal(entry(), integer);
+  it('pain_level entry should allow only a choice between 1 and 10', function(){
+    let input = NULL;
+    let entryInput = entry(inputOptions)
+
+    expect(entryInput).to.equal(); // should have a value of 1-10
   });
+  
+  it('strength_level entry should allow a choice between 1 and 10', function(){
+    let input = NULL;
+    let entryInput = entry(inputOptions);
+
+    expect(entryInput).to.equal(inputOptions); // should have a value of 1-10
+
+  it('should not log entry if nothing is selected', function () {
+    let entryCall = function() {
+      entry('null');
+    };
+
+    expect(entryCall).to.throw(Error, "A value should be selected from the drop down menu for each entry") // or NaN
+  }); 
+
 });
 
-//   it('pain_level should allow integer input only', () => {
-//     expect(entry()).to.exist(integer);
-//   });
-// });
-
-
-// describe('entry', () => {
-//   it('pain_level should allow integer input only', () => {
-//     expect(entry()).to.exist(integer);
-//   });
-
-//   it('strength_level should allow integer input only', () => {
-//     expect(entry()).to.exist(integer);
-//   });
-
-//   it('pain_top should require a yes/true or no/false choice', () => {
-//     expect(entry()).to.equal(boolean);
-//   });
-
-//   it('pain_botton should require a yes/true or no/false choice', () => {
-//     expect(entry()).to.equal(boolean);
-//   });
-
-//   it('pain_interior should require a yes/true or no/false choice', () => {
-//     expect(entry()).to.equal(boolean);
-//   });
-
-//   it('pain_exterior should require a yes/true or no/false choice', () => {
-//     expect(entry()).to.equal(boolean);
-//   });
-// });
-
-// expect and equal need updated information
-// the integer and boolean may need to be replaced
-// need errors to throw
-
+module.exports = db // what is the module for the test //

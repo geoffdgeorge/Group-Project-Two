@@ -1,20 +1,49 @@
-//skeleton for sever js testing 
+var chai = require("chai");
+var chaiHttp = require("chai-http");
+var server = require("../server");
+var db = require("../models");
+var expect = chai.expect;
 
-describe('Blobs', function() {
-    it('should list ALL blobs on /blobs GET');
-    it('should list a SINGLE blob on /blob/<id> GET');
-    it('should add a SINGLE blob on /blobs POST');
-    it('should update a SINGLE blob on /blob/<id> PUT');
-    it('should delete a SINGLE blob on /blob/<id> DELETE');
+
+chai.use(chaiHttp);
+let request;
+
+describe("POST /api/entries", function() {
+  // Before each test begins, create a new request server for testing
+  // & delete all examples from the db
+  beforeEach(function() {
+    request = chai.request(server);
+    return db.sequelize.sync({ force: true });
   });
 
-  it('should list ALL blobs on /blobs GET', function(done) {
-    chai.request(server)
-      .get('/blobs')
-      .end(function(err, res){
-        res.should.have.status(200);
+  it("should save an example", function(done) {
+    // Object for endpoint testing
+    db.Test.createAll([
+      { text: "pain_level", description: "number between 1 and 10"},
+      { text: "strength_level", description: "number between 1 and 10"}, 
+    ]).then(function() {
+      request.get(" /api/entries").end(function(err, res) {
+        let responseStatus = res.status;
+        let responseBody = res.body;
+
+        expect(err).to.be.null;
+
+        expect(responseStatus).to.equal(200); // http request will be successful 
+
+        expect(responseBody[0])
+          .to.be.an("number")
+          .that.includes(text: "pain_level", description: "number between 1 and 10");
+
+        expect(responseBody[1])
+          .to.be.an("number")
+          .that.includes(text: "strength_level", description: "number between 1 and 10")
+        
         done();
       });
+    });
   });
+}); 
 
-  // add data for get and post 
+
+//Need this for initial signup, updating data
+//Test should coincide with username
