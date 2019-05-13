@@ -61,8 +61,8 @@ loginSubmit.addEventListener('submit', (e) => {
   axios
     .post('/login', data)
     .then((response) => {
-      console.log(response)
-      if (response.status === 200) {
+      console.log(response.request.responseURL);
+      if (response.request.responseURL === 'http://localhost:4500/userPage') {
         window.location = '/userPage';
       } else {
         window.location = '/login';
