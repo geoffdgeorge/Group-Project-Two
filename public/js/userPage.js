@@ -119,10 +119,13 @@ axios
               type: 'time',
               time: {
                 displayFormats: {
-                  hour: 'MMM Do',
+                  hour: 'MMM DD, hA',
                 },
               },
               distribution: 'series',
+              ticks: {
+                minRotation: 45,
+              },
             },
           ],
           yAxes: [
