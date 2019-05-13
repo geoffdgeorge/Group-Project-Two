@@ -24,7 +24,7 @@ function animatedForm() {
   const arrows = document.querySelectorAll('.fa-arrow-down');
 
   arrows.forEach((arrow) => {
-    arrow.addEventListener('click', () => {
+    arrow.addEventListener('click', (e) => {
       const input = arrow.previousElementSibling;
       const parent = arrow.parentElement;
       const nextForm = parent.nextElementSibling;
@@ -35,8 +35,6 @@ function animatedForm() {
       } else if (input.type === 'password' && validateUser(input)) {
         nextSlide(parent, nextForm);
       } else {
-        console.log(parent);
-
         parent.style.animation = 'shake 0.5s ease';
       }
       // get rid of animation
@@ -47,22 +45,22 @@ function animatedForm() {
   });
 }
 
+animatedForm();
 
-const userInputSignUp = document.querySelector('#username-signup');
-const pwInputSignUp = document.querySelector('#password-signup');
-const submitSignUp = document.querySelector('#submit-signup');
+const submitSignUp = document.querySelector('#signup');
 
 function handleSignUp(e) {
   e.preventDefault();
 
   const data = {
-    username: userInputSignUp.value.trim(),
-    password: pwInputSignUp.value.trim(),
+    username: e.target.username.value.trim(),
+    password: e.target.password.value.trim(),
   };
 
   axios
     .post('/signup', data)
     .then((response) => {
+      console.log(response.data);
       if (response.status === 200) {
         window.location = '/userPage';
       } else {
