@@ -36,7 +36,6 @@ function handleEntrySubmit(e) {
 axios
   .get(`/api/entries/${submitForm.dataset.id}`)
   .then((response) => {
-    console.log(response);
     const entries = response.data;
     const painData = [];
     const strengthData = [];
@@ -87,9 +86,6 @@ axios
       entryDiv.appendChild(date);
       entryTable.prepend(entryDiv);
     });
-
-    console.log(painData);
-    console.log(strengthData);
 
     // Dummy chart attached to the canvas element in userPage.hbs
     const ctx = document.getElementById('graph').getContext('2d');

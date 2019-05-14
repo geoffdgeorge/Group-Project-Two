@@ -6,7 +6,6 @@ function error(color) {
 
 function validateUser(user) {
   if (user.value.length < 6) {
-    console.log('not enough characters');
     error('rgb(189,87,87)');
   } else {
     error('rgb(87,189,130)');
@@ -61,7 +60,6 @@ function handleSignUp(e) {
     axios
       .post('/signup', data)
       .then((response) => {
-        console.log(response.request.responseURL);
         if (response.request.responseURL === 'http://localhost:4500/userPage') {
           window.location = '/userPage';
         } else {
