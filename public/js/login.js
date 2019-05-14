@@ -18,13 +18,12 @@ function animatedForm() {
       const nextForm = parent.nextElementSibling;
 
       // Check for validation
-      if (input.type === 'text') {
+      if (input.type === 'text' && input.value) {
         nextSlide(parent, nextForm);
-      } else if (input.type === 'password') {
+      } else if (input.type === 'password' && input.value) {
         nextSlide(parent, nextForm);
       } else {
-        console.log(parent);
-
+        error('rgb(189,87,87)');
         parent.style.animation = 'shake 0.5s ease';
       }
       // get rid of animation
