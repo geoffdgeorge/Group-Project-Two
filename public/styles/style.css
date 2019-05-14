@@ -49,6 +49,16 @@ body {
 		left: 0;
 	}
 
+	#signup-call a {
+		text-decoration: none;
+		color: rgb(103, 66, 122);
+	}
+
+	#signup-call a:hover {
+		color: white;
+		text-shadow: 0.3rem 0.3rem 0.5rem #616161;
+	}
+
 	.field-name,
 	.field-password {
 		position: absolute;
@@ -130,6 +140,13 @@ body {
 		top: 1rem;
 		left: 1rem;
 		font-family: "Yanone Kaffeesatz", sans-serif;
+		color: rgb(103, 66, 122);
+	}
+
+	#logout:hover,
+	#login-return:hover {
+		color: white;
+		text-shadow: 0.3rem 0.3rem 0.5rem #616161;
 	}
 
 	#container {

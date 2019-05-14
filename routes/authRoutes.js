@@ -1,5 +1,6 @@
 const authController = require('../controllers/authcontroller.js');
 
+// eslint-disable-next-line func-names
 module.exports = function (app, passport) {
   // Signs up a new user
   app.get('/signup', authController.signup);
@@ -7,16 +8,6 @@ module.exports = function (app, passport) {
   app.get('/login', authController.login);
   app.get('/userPage', isLoggedIn, authController.userPage);
   app.get('/logout', authController.logout);
-
-  /*
-  app.get('/api/entries/:entries', (req, res) => { //  // Adding a 'get' to show previous entries
-    db.entry.findAll({}).then((data) => { // db.entry (entry different from Entry?)
-      res.json(data);
-    });
-  });
-
-  Put 'get' for entries here so that when authorization happens, entry data associated with that account will appear
-  */
 
   app.post(
     '/signup',
