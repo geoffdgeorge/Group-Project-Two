@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/normalize.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Russo+One|Yanone+Kaffeesatz" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css" />
+</head>
+
+<body>
+    <div id='container'>
+        <a href="/logout"><span id='logout'><i class="fas fa-arrow-left"></i> Logout</span></a>
+        <header>
+            <h1>Patellr</h1>
+        </header>
+
+        <main>
+            <form id='entry-submit' data-id={{id}}>
+                <h2>Welcome, {{username}}!</h2>
+                    <h3>How are you feeling today?</h3>
+                <section id='pain-survey'>
+                    <section id='where-pain'>
+                        <p><strong>Where's the Pain?</strong></p>
+                        <section id='knee-diagram'>
+                            <div id='top'>
+                                <p>Top</p>
+                                <input type="checkbox" class='knee-area' id='knee-top' alt='knee top'>
+                            </div>
+                            <div id='bottom'>
+                                <input type="checkbox" class='knee-area' id='knee-bottom' alt='knee bottom'>
+                                <p>Bottom</p>
+                            </div>
+                            <div id='inside'>
+                                <p>Inside</p>
+                                <input type="checkbox" class='knee-area' id='knee-inside' alt='knee inside'>
+                            </div>
+                            <div id='outside'>
+                                <p>Outside</p>
+                                <input type="checkbox" class='knee-area' id='knee-outside' alt='knee outside'>
+                            </div>
+                            <img id='knee-img' src="../imgs/muscles_knee.png" alt="diagram of knee">
+                        </section>
+                    </section>
+                    <section id='pain-choices'>
+                        <div class="select">
+                            <p><strong>Pain Level</strong></p>
+                            <select id='pain' name="choices">
+                                <option value="1">1 (Little to None)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5" selected="selected">5></option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10 (Excruciating)</option>
+                            </select>
+                        </div>
+
+                        <div class="select">
+                            <p><strong>Strength Level</strong></p>
+                            <select id='strength' name="choices">
+                                <option value="1">1 (Weak)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5" selected="selected">5></option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10 (Full Strength)</option>
+                            </select>
+                        </div>
+                        <button type='submit'>Submit</button>
+                    </section>
+                </section>
+            </form>
+            <section id='data'>
+                <section id='entries'>
+                    <h3><strong>Updates</strong></h3>
+                    <div id='entry-header'>
+                        <p><strong>Strength</strong></p>
+                        <p><strong>Pain</strong></p>
+                        <p><strong>Pain Top</strong></p>
+                        <p><strong>Pain Bottom</strong></p>
+                        <p><strong>Pain Inside</strong></p>
+                        <p><strong>Pain Outside</strong></p>
+                        <p><strong>Updated</strong></p>
+                    </div>
+                    <div id='entry-table'>
+                    </div>
+                </section>
+                <section id='graph-display'>
+                    <div id='graph-container'>
+                        <canvas id='graph'></canvas>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../js/userPage.js"></script>
+</body>
+
+</html>

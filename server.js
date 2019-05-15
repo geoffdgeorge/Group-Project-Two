@@ -1,45 +1,56 @@
-require("dotenv").config();
-var express = require("express");
-var exphbs = require("express-handlebars");
+require('dotenv').config();
+const express = require('express');
+const passport = require('passport');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
+const db = require('./models');
 
-var db = require("./models");
-
-var app = express();
-var PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 4500;
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static('public'));
 
-// Handlebars
+// For Passport
+app.use(session({ secret: 'my secret', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// For Handlebars
+app.set('views', './views');
 app.engine(
-  "handlebars",
+  'hbs',
   exphbs({
-    defaultLayout: "main"
-  })
+    extname: '.hbs',
+  }),
 );
-app.set("view engine", "handlebars");
+app.set('view engine', '.hbs');
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app);
+require('./routes/authRoutes')(app, passport);
 
-var syncOptions = { force: false };
+// Passport Strategies
+require('./config/passport/passport.js')(passport, db.User);
+
+const syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
+if (process.env.NODE_ENV === 'test') {
   syncOptions.force = true;
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(() => {
+  app.listen(PORT, () => {
     console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      '==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.',
       PORT,
-      PORT
+      PORT,
     );
   });
 });

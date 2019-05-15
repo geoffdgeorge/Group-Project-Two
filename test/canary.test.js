@@ -1,9 +1,10 @@
-var expect = require("chai").expect;
+// Verifying that test suite is set up
 
-describe("canary test", function() {
-  // A "canary" test is one we set up to always pass
-  // This can help us ensure our testing suite is set up correctly before writing real tests
-  it("should pass this canary test", function() {
+const { expect } = require('chai');
+
+describe('canary test', () => {
+  it('should pass this canary test', () => {
     expect(true).to.be.true;
   });
 });
+
