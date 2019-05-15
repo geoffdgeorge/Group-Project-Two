@@ -51,7 +51,7 @@ loginSubmit.addEventListener('submit', (e) => {
     .post('/login', data)
     .then((response) => {
       console.log(response.request.responseURL);
-      if (response.request.responseURL === 'http://localhost:4500/userPage') {
+      if (response.request.responseURL === 'https://whispering-retreat-76401.herokuapp.com/userPage') {
         window.location = '/userPage';
       } else {
         // window.location = '/login';

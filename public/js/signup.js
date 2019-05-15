@@ -60,7 +60,9 @@ function handleSignUp(e) {
     axios
       .post('/signup', data)
       .then((response) => {
-        if (response.request.responseURL === 'http://localhost:4500/userPage') {
+        if (
+          response.request.responseURL === 'https://whispering-retreat-76401.herokuapp.com/userPage'
+        ) {
           window.location = '/userPage';
         } else {
           document.querySelector('.field-name').classList.add('active');
